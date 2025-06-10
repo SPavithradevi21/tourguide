@@ -1,34 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import PlaceCard from "./PlaceCard";
+import "./PlaceList.css";
 
 const PlaceList = () => {
   const [places, setPlaces] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setPlaces([
-        { id: 1, name: 'Taj Mahal', location: 'Agra' },
-        { id: 2, name: 'Qutub Minar', location: 'Delhi' },
-        { id: 3, name: 'Mysore Palace', location: 'Mysore' },
-      ]);
-      setLoading(false);
-    }, 1000);
+    setPlaces([
+      {
+        id: 1,
+        title: "Taj Mahal",
+        image: "/images/taj-mahal.jpg",
+        description: "An iconic symbol of love in Agra.",
+        location: "Agra, India",
+      },
+      {
+        id: 2,
+        title: "Qutub Minar",
+        image: "/images/qutub-minar.jpg",
+        description: "A UNESCO World Heritage Site in Delhi.",
+        location: "Delhi, India",
+      },
+      {
+        id: 3,
+        title: "Mysore Palace",
+        image: "/images/mysore-palace.jpg",
+        description: "A historic palace in Mysore.",
+        location: "Mysore, Karnataka",
+      },
+    ]);
   }, []);
 
   return (
-    <div>
-      <h2>Popular Tourist Places</h2>
-      {loading ? <p>Loading...</p> : (
-        <ul>
-          {places.map(place => (
-            <li key={place.id}>
-              <strong>{place.name}</strong> - {place.location}
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="place-list">
+      {places.map((place) => (
+        <PlaceCard key={place.id} {...place} />
+      ))}
     </div>
   );
 };
 
-export default PlaceList;
+export default PlaceList;

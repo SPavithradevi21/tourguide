@@ -1,16 +1,19 @@
-import React from 'react';
-import './App.css';
-import PlaceList from './components/PlaceList';
-import ImageSlider from './components/ImageSlider';
+import React from "react";
+import HeroSection from "./components/HeroSection";
+import ImageSlider from "./components/ImageSlider";
+import PlaceList from "./components/PlaceList";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Tourguide App</h1>
+      <HeroSection />
       <ImageSlider />
       <PlaceList />
+  
     </div>
   );
 }
 
-export default App;
+export default App;
